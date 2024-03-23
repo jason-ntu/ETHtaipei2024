@@ -15,7 +15,7 @@ const Header = (props: { homepage: boolean }) => {
   useEffect(() => {
     if (!props.homepage) return;
     window.addEventListener("scroll", () => {
-      setOpacity(window.scrollY * OPACITY_COEFFIECIENT);
+      setOpacity(Math.min(window.scrollY * OPACITY_COEFFIECIENT,1));
     });
   }, []);
 
@@ -29,7 +29,7 @@ const Header = (props: { homepage: boolean }) => {
       <div
         style={{
           display: "flex",
-          width: "900px",
+          width: "1500px",
           margin: "0 auto",
           padding: ".5rem 0",
         }}
@@ -63,13 +63,13 @@ const Header = (props: { homepage: boolean }) => {
               alignItems: "center",
             }}
           >
-            <Link href="/login">
-              <span className="rounded-full bg-green-600 px-5 py-3 text-center text-md font-medium text-white hover:bg-myyFirstColorHover hover:text-white; w-28 h-16 font-medium">
+            <Link href="/login"> 
+              <span className="w-28 h-16 px-5 py-3 font-medium text-lg text-white text-center bg-black">
                 LOG IN
               </span>
             </Link>
             <Link href="/signup">
-              <span className="rounded-full bg-green-600 px-5 py-3 text-center text-md font-medium text-white hover:bg-myyFirstColorHover hover:text-white; w-28 h-16 font-medium">
+              <span className="w-28 h-16 px-5 py-3 font-medium text-lg text-white text-center bg-black">
                 SIGN UP
               </span>
             </Link>
