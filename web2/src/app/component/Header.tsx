@@ -64,12 +64,12 @@ const Header = (props: { homepage: boolean }) => {
             }}
           >
             <Link href="/login"> 
-              <span className="w-28 h-16 px-5 py-3 font-medium text-lg text-white text-center bg-black">
+              <span className="w-28 h-16 px-5 py-3 border-2 border-white font-medium text-lg text-white text-center bg-black">
                 LOG IN
               </span>
             </Link>
             <Link href="/signup">
-              <span className="w-28 h-16 px-5 py-3 font-medium text-lg text-white text-center bg-black">
+              <span className="w-28 h-16 px-5 py-3 border-2 border-white font-medium text-lg text-white text-center bg-black">
                 SIGN UP
               </span>
             </Link>
