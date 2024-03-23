@@ -1,6 +1,6 @@
 "use client"
 
-import { createContext, useState } from "react"
+import { createContext, useState, useEffect } from "react"
 
 export interface IAuth {
     token: string
@@ -12,15 +12,19 @@ export const authInitalVal:IAuth = {
     loggedIn: false
 }
 
-const AuthContext = createContext<{state: IAuth, setState: (_:IAuth) => void}|null>(null);
+const AuthContext = createContext<{auth: IAuth, setAuth: (_:IAuth) => void}>({
+    auth: {token: '', loggedIn: false}, setAuth: (_) => {return;}
+});
 
 const AuthProvider = (props:any) => {
     const [auth, setAuth] = useState<IAuth>(authInitalVal);
+
+    useEffect(() => {
+        console.log('aaa',auth)
+    },[auth])
+
     return (
-        <AuthContext.Provider value={{
-            state: auth,
-            setState: setAuth
-        }}>
+        <AuthContext.Provider value={{auth, setAuth}}>
             {props.children}
         </AuthContext.Provider>
     )
