@@ -9,14 +9,11 @@
     "lint": "next lint"
   },
   "dependencies": {
-<<<<<<< HEAD
     "@emotion/react": "^11.11.4",
     "@emotion/styled": "^11.11.0",
     "@mui/material": "^5.15.14",
-=======
     "flowbite": "^2.3.0",
     "flowbite-react": "^0.7.5",
->>>>>>> 97422c9 (complete Card)
     "mongoose": "^8.2.3",
     "next": "14.1.4",
     "npm": "^10.5.0",
