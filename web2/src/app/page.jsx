@@ -4,10 +4,9 @@ import Header from "./component/Header";
 export default function page(second) {
   return (
     <>
-      <div className="bg-white bg-center background"></div>
       <div className="mx-auto max-w-screen-2xl">
         <Header homepage={true} />
-
+        
         <h2 className="mx-auto max-w-screen-2xl text-2xl font-bold">
           人氣民宿、公寓類型住宿
         </h2>

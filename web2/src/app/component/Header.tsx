@@ -10,12 +10,12 @@ const Header = (props: { homepage: boolean }) => {
   const auth = useAuth();
 
   const [opacity, setOpacity] = useState(1);
-  const OPACITY_COEFFIECIENT = 0.0005;
+  const OPACITY_COEFFICIENT = 0.0005;
 
   useEffect(() => {
     if (!props.homepage) return;
     window.addEventListener("scroll", () => {
-      setOpacity(Math.min(window.scrollY * OPACITY_COEFFIECIENT,1));
+      setOpacity(Math.min(window.scrollY * OPACITY_COEFFICIENT,1));
     });
   }, []);
 
