@@ -31,25 +31,27 @@ const UserInfoPage = () => {
     const auth = useAuth();
     const [userInfoObj, setUserInfoObj] = useState<IUserInfo|null>(null);
 
+    const loadData = async function(){
+        try {
+            const res = await fetch(`${SERVER}/api/user?id=${auth.token}`,{
+                headers:{
+                    "ngrok-skip-browser-warning": "69420",
+                }
+            });
+            const json = await res.json();
+            if (json.status === 200) {
+                setUserInfoObj(json.message);
+            } else {
+                throw new Error('fml');
+            }
+        } catch (err) {
+            console.error('error while fetching user info',err);
+        }
+    }
+
     useEffect(() => {
         if (!auth.loggedIn) return;
-        (async function(){
-            try {
-                const res = await fetch(`${SERVER}/api/user?id=${auth.token}`,{
-                    headers:{
-                        "ngrok-skip-browser-warning": "69420",
-                    }
-                });
-                const json = await res.json();
-                if (json.status === 200) {
-                    setUserInfoObj(json.message);
-                } else {
-                    throw new Error('fml');
-                }
-            } catch (err) {
-                console.error('error while fetching user info',err);
-            }
-        })();
+        loadData();
     },[auth.token])
 
     const subscribe = async () => {
@@ -65,6 +67,7 @@ const UserInfoPage = () => {
             } else {
                 alert('subscribe faillure')
             }
+            await loadData();
         } catch (err) {
             console.error('error while subscribing: ',err)
         }
@@ -82,7 +85,7 @@ const UserInfoPage = () => {
             <Row><Label>#USDC Token:</Label> <b>{userInfoObj.USDC_amount}</b></Row>
             <Divider/>
             <h3 style={{fontSize: '1.2rem', fontWeight: 'bold', margin: '.8rem 0'}}>Subscription</h3>
-            <Row><Label>Monthly Plan:</Label><Button disabled={userInfoObj.isSubscribe} onClick={() => subscribe()}>Subscribe</Button></Row>
+            <Row><Label>Monthly Plan:</Label><Button disabled={userInfoObj.isSubscribe} onClick={() => subscribe()}>{userInfoObj.isSubscribe?'Subscribed':'Subscribe'}</Button></Row>
         </div> :
         JSON.stringify(auth)
 

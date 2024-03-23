@@ -9,7 +9,7 @@ export interface IHotelInfo {
     description: string
     address: string
     price: number
-    imageLinks: string[]
+    imageLink: string[]
     tags: string[]
     score: number
 }
