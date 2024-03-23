@@ -2,6 +2,7 @@
 
 import {useEffect, useState} from 'react';
 import useAuth from '../../hooks/useAuth';
+import { Card, TextField, styled } from '@mui/material';
 
 export interface IUserInfo{
     name: string
@@ -9,6 +10,18 @@ export interface IUserInfo{
     walletAddress: string
     email: string 
 }
+
+const Label = styled('span')({
+    display: 'inline-block',
+    width: '30%'
+});
+
+const Row = styled('div')({
+    width: '100%',
+    padding: '.5rem .2rem',
+    display: 'flex',
+    alignItems: 'center'
+})
 
 const UserInfoPage = () => {
 
@@ -24,19 +37,21 @@ const UserInfoPage = () => {
         })
     },[auth.token])
     
-    if (userInfoObj !== null){
-        return (
-            <>
-                <h2>{userInfoObj.name}</h2>
-                <span>email: {userInfoObj.email}</span>
-                <span>wallet addr: {userInfoObj.walletAddress}</span>
-                <span>current token: {userInfoObj.tokenLeft}</span>
+    return (
+        userInfoObj !== null?
+        <div style={{padding: '.5rem'}}>
+            <h2 style={{fontSize: '1.5rem', fontWeight: 'bold'}}>{userInfoObj.name}</h2>
+            
+            <Row><Label>Email:</Label><TextField value={userInfoObj.email} disabled/></Row>
+            <Row><Label>Wallet Address:</Label> <TextField value={userInfoObj.walletAddress} disabled/></Row>
+            <Row><Label>#Token:</Label> <b>{userInfoObj.tokenLeft}</b></Row>
+
+            <Card>
                 
-            </>
-        )
-    } else {
-        return null;
-    }
+            </Card>
+        </div> :
+        null
+    )
 }
 
 export default UserInfoPage;
