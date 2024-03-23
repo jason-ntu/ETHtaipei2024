@@ -1,17 +1,22 @@
+"use client";
+
 import { ListItemIcon, ListItemText, MenuItem, MenuList } from "@mui/material";
 import PersonIcon from '@mui/icons-material/Person';
 import NotesIcon from '@mui/icons-material/Notes';
+import { useRouter } from "next/navigation";
+import Header from "../component/Header";
 
 export default function UserLayout({ children }) {
+
+    const router = useRouter();
+
     return (
         <div id="user-page" style={{display: 'flex', height: '100vh', flexDirection: 'column'}}>
-            <header>
-                <span style={{padding: '.2rem'}}>LOGO</span>
-            </header>
+            <Header/>
             <main style={{display:"flex", flex: 1}}>
                 <nav style={{width: '20vw'}}>
                     <MenuList>
-                        <MenuItem>
+                        <MenuItem onClick={() => {router.push('/user/info')}}>
                             <ListItemIcon>
                                 <PersonIcon/>
                             </ListItemIcon>
@@ -19,7 +24,7 @@ export default function UserLayout({ children }) {
                                 User Info
                             </ListItemText>
                         </MenuItem>
-                        <MenuItem>
+                        <MenuItem onClick={() => {router.push('/user/records')}}>
                             <ListItemIcon>
                                 <NotesIcon/>
                             </ListItemIcon>

@@ -22,7 +22,7 @@ const UserInfoPage = () => {
             walletAddress: '0x123412341234',
             tokenLeft: 90
         })
-    })
+    },[auth.token])
     
     if (userInfoObj !== null){
         return (
