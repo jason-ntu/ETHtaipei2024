@@ -18,11 +18,19 @@ const HotelSchema = new Schema({
     type: Number,
     required: false,
   },
-  photo: {
-    type: String,
+  imageLink: {
+    type: [String],
     required: false,
   },
-});
+  tags: {
+    type: [String],
+    required: false
+  },
+  rating: {
+    type: Number,
+    required: false
+  }
+}, { versionKey: false });
 
 const Hotel = mongoose.models.Hotel || model('Hotel', HotelSchema);
 
