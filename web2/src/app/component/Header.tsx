@@ -7,7 +7,7 @@ import useAuth from "../hooks/useAuth";
 import { useEffect, useState } from "react";
 
 const Header = (props: {
-    homepage: boolean
+    homepage?: boolean
 }) => {
 
     const auth = useAuth();
@@ -24,10 +24,10 @@ const Header = (props: {
 
     return (
         <header style={{position: props.homepage?'fixed':undefined,  backgroundColor: `rgba(255,255,255,${opacity})`}}>
-            <div style={{display: 'flex', width: '900px', margin: '0 auto', padding: '.5rem 0'}}>
+            <div style={{display: 'flex', width: '900px', margin: '0 auto', padding: '.5rem 1rem'}}>
                 <div style={{flex: 1}}>
                     <Link href='/' style={{display:'flex', alignItems:'center'}}>
-                        <CottageIcon/><span style={{padding: '.2rem', fontWeight:'bold', fontSize: '1.2rem'}}>Circoda</span>
+                        <CottageIcon style={{marginRight: '.5rem'}}/><span style={{padding: '.2rem', fontWeight:'bold', fontSize: '1.2rem'}}>Circoda</span>
                     </Link>
                 </div>
                 {

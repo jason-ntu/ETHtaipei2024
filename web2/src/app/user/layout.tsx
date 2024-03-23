@@ -13,8 +13,8 @@ export default function UserLayout({ children }) {
     return (
         <div id="user-page" style={{display: 'flex', height: '100vh', flexDirection: 'column'}}>
             <Header/>
-            <main style={{display:"flex", flex: 1}}>
-                <nav style={{width: '20vw'}}>
+            <main style={{display:"flex", flex: 1, width: '900px', margin: '0 auto'}}>
+                <nav style={{width: '20%'}}>
                     <MenuList>
                         <MenuItem onClick={() => {router.push('/user/info')}}>
                             <ListItemIcon>
