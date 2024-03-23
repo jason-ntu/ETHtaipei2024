@@ -9,7 +9,7 @@ export default function page() {
 
   useEffect(() => {
     const getData = async () => {
-      fetch(`https://dac6-219-87-81-162.ngrok-free.app/api/hotel/`,{
+      fetch(`https://dac6-219-87-81-162.ngrok-free.app/api/hotel`,{
           headers: {
             "ngrok-skip-browser-warning": "69420"
           }

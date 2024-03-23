@@ -18,7 +18,7 @@ const SignupPage = () => {
     const handleSignup = () => {
         (async function() {
             try{
-                const res = await fetch(`${SERVER}/api/register`, {
+                const res = await fetch(`${SERVER}/api/user/register`, {
                     method: 'POST',
                     body: {
                         name: name,
