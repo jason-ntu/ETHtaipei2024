@@ -3,8 +3,8 @@ import Card from "../component/Card";
 export default function page(second) {
   return (
     <div className="className=" mx-auto max-w-screen-2xl>
+      <h2 className="mx-auto max-w-screen-2xl text-2xl font-bold">人氣民宿、公寓類型住宿</h2>
       <ul className="mx-auto flex max-w-screen-2xl flex-wrap ">
-        
         <Card
           room_name={"SINGLE"}
           price={599}

@@ -1,6 +1,6 @@
 export default function Card({ room_name, price, image, rating, description }) {
   return (
-    <div class="mx-2 my-4 w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+    <li class="mx-2 my-4 w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
       <a href="#">
         <img class="p-2 rounded-t-lg" src={image} alt="product image" />
       </a>
@@ -31,6 +31,6 @@ export default function Card({ room_name, price, image, rating, description }) {
           </a>
         </div>
       </div>
-    </div>
+    </li>
   );
 }
