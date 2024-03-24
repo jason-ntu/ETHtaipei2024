@@ -9,6 +9,13 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@emotion/react": "^11.11.4",
+    "@emotion/styled": "^11.11.0",
+    "@mui/icons-material": "^5.15.14",
+    "@mui/material": "^5.15.14",
+    "axios": "^1.6.8",
+    "flowbite": "^2.3.0",
+    "flowbite-react": "^0.7.5",
     "mongoose": "^8.2.3",
     "next": "14.1.4",
     "npm": "^10.5.0",
