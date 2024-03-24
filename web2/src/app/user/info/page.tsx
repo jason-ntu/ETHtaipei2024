@@ -63,7 +63,7 @@ const UserInfoPage = () => {
             })
             const json = await res.json();
             if (json.status === 200) {
-                alert('CCM_txHash: '+ json.message.CCM_txHash + ';USDC_txHash: '+json.message.USDC_txHash);
+                alert('CCM_txHash: '+ json.message.CCM_txHash + '; USDC_txHash: '+json.message.USDC_txHash);
             } else {
                 alert('subscribe faillure')
             }

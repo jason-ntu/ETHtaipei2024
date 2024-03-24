@@ -10,6 +10,7 @@ import Image from "next/image";
 export interface IRecord{
     hotel: IHotelInfo
     user: IUserInfo
+    bookingId: string
     transactions: {
         CCM_txHash: string
         CCR_txHash: string

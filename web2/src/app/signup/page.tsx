@@ -20,11 +20,11 @@ const SignupPage = () => {
             try{
                 const res = await fetch(`${SERVER}/api/user/register`, {
                     method: 'POST',
-                    body: {
+                    body: JSON.stringify({
                         name: name,
                         password: password,
                         email: email
-                    }
+                    })
                 })
                 const json = await res.json();
                 if (json.status === 200) {

@@ -39,7 +39,7 @@ const HotelModal = (props: {
             const json = await res.json();
             if (json.status === 200) {
                 alert('successfully booked!');
-                router.push(`/user/record/${json.message.bookingId}`)
+                router.push(`/user/records/${json.message.bookingId}`)
             } else {
                 console.log('fml');
             }
