@@ -1,7 +1,12 @@
 {
   "dependencies": {
+<<<<<<< HEAD
     "@emotion/react": "^11.11.4",
     "@emotion/styled": "^11.11.0",
     "@mui/material": "^5.15.14"
+=======
+    "@openzeppelin/contracts": "^5.0.2",
+    "mint.club-v2-sdk": "^0.0.82"
+>>>>>>> origin/contract
   }
 }
