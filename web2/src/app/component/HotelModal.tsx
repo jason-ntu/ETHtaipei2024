@@ -17,28 +17,17 @@ export interface IHotelInfo {
 const HotelModal = (props: {
     open: boolean
     setOpen: (val:boolean) => void
-    hotelID: string
+    hotelObj: IHotelInfo | null
 }) => {
 
-    const [hotelObj, setHotelObj] = useState<IHotelInfo|null>(null);
-
-    useEffect(() => {
-        //TODO
-        setHotelObj({
-            _id: "65fe8bf90b890de531b18a53",
-            name: "hotel2",
-            address: "No. 1001, St. Whatever, Daan District, Taipei",
-            description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc faucibus ornare neque eget pellentesque. Maecenas iaculis ante in odio cursus ultrices. Quisque posuere interdum aliquet. Donec laoreet fermentum diam porttitor malesuada. Cras placerat lectus non ullamcorper imperdiet. Mauris in pulvinar est. ",
-            price: 20,
-            imageLinks: ["http://placekitten.com/200/300","http://placekitten.com/200/300","http://placekitten.com/200/300","http://placekitten.com/200/300"],
-            tags:["big room", "pet allowed", "for hackathon candidate"],
-            score: 3.5
-        })
-    }, [props.hotelID])
-
-    const book = () => {
-
+    const book = async () => {
+        try {
+            const res = await fetch(``)
+        } catch (err) {
+        }
     }
+
+    const {hotelObj} = props;
 
     return (
         <Modal open={props.open} onClose={() => props.setOpen(false)} keepMounted>
@@ -58,7 +47,7 @@ const HotelModal = (props: {
                         {
                             hotelObj === null?
                                 null:
-                                hotelObj.imageLinks.map((imagelink, idx) => (
+                                hotelObj.imageLink.map((imagelink, idx) => (
                                     <ImageListItem key={idx+imagelink}>
                                         <img src={imagelink} alt="" style={{width: '100%'}}/>
                                     </ImageListItem>
