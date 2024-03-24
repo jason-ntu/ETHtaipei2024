@@ -2,6 +2,9 @@
 
 import { Grid, Modal, Box, ImageList, ImageListItem, Stack, Chip, Button, Divider } from "@mui/material";
 import { useEffect, useState } from "react";
+import { SERVER } from "../constant";
+import useAuth from "../hooks/useAuth";
+import { useRouter } from "next/navigation";
 
 export interface IHotelInfo {
     _id: string
@@ -20,14 +23,30 @@ const HotelModal = (props: {
     hotelObj: IHotelInfo | null
 }) => {
 
+    const {hotelObj} = props;
+    const router = useRouter();
+    const auth = useAuth();
+
     const book = async () => {
         try {
-            const res = await fetch(``)
+            const res = await fetch(`${SERVER}/api/payment/booking`, {
+                method: 'POST',
+                body: JSON.stringify({
+                    userId: auth.token,
+                    hotelId: hotelObj?._id,
+                })
+            });
+            const json = await res.json();
+            if (json.status === 200) {
+                alert('successfully booked!');
+                router.push(`/user/record/${json.message.bookingId}`)
+            } else {
+                console.log('fml');
+            }
         } catch (err) {
         }
     }
 
-    const {hotelObj} = props;
 
     return (
         <Modal open={props.open} onClose={() => props.setOpen(false)} keepMounted>
