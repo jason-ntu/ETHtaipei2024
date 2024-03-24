@@ -29,7 +29,12 @@ During the hackathon, we utilized Circle's Dev Controlled Wallets to implement a
 ### 3. User book for hotel
 ![Circoda - User place order](https://github.com/jason-ntu/ETHtaipei2024/assets/125814787/18279885-1c74-4fc4-bde4-c2c91b2683c4)
 
-There's also ubsbscribe and cancel order
+There's also ubsbscribe and cancel order haven't bimplemm
 
 
 ## Contract Links
+[ERC20 token (CCM, Circoda mini) (Sepolia)](https://goerli.lineascan.build/address/0x8b1CB4Bb68e6126c4fD54Aa2DC08705f5d5E5615CCR)
+
+[NFT (Proof of Reservation) (Sepolia)](https://goerli.lineascan.build/address/0x096F9eF5185E1a05bF18961C5b76C8E97CbC50b0Circoda)
+
+[Contract (Linea)](https://goerli.lineascan.build/address/0x7B1632265E71bf78a8e7727EB9F93a345C457D49)
