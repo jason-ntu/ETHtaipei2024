@@ -16,9 +16,20 @@ We utilized Circle's programmable wallet to implement an on-chain reservation pl
 
 ### Why subscription service avoid fluctuating prices?
 
-Jarpanese company KabuK Style Inc. issue an online reservation service [HafH](https://www.hafh.com/en) based on subscription service. The basic idea is to let subscribers pay monthly fee to get HafH token and use it to pay for the reservation (currently 49.99 USD for 200 token). HafH stabilizes room prices by predicting reasonable market prices through its internal algorithm and directly signing contracts with accommodation providers. Although we don't know about the algorithm, but it indeed provide lower then average fix price.
+Jarpanese company KabuK Style Inc. has an online reservation platform [HafH](https://www.hafh.com/en) based on subscription service. The basic idea is to let subscribers pay monthly fee to get HafH token and use it to pay for the reservation (currently 49.99 USD for 200 token / per month). HafH stabilizes room prices by predicting reasonable market prices through its internal algorithm and directly signing contracts with accommodation providers. Although we don't know about the algorithm, subscription service indeed provide a fixed lower price and create customer loyalty while providing predictable revenue streams for the company.
 
 ## Abstactions
-During the hackathon, we utilized Circle's Dev Controlled Wallets to implement a subscription service and develop a MVP product for the reservation service.
+During the hackathon, we utilized Circle's Dev Controlled Wallets to implement a subscription service and develop a MVP product for the reservation service. There are 3 basic use case about Circoda
+### 1. New user registeration
+![Circoda - New user register](https://github.com/jason-ntu/ETHtaipei2024/assets/125814787/d7626558-c433-4994-8f4d-1638a4f07b9f)
+
+### 2. User subscribe for service
+![Circoda - User subscribe   auto deduct](https://github.com/jason-ntu/ETHtaipei2024/assets/125814787/c1b0642a-756a-4b31-8ac7-7c546684abbe)
+
+### 3. User book for hotel
+![Circoda - User place order](https://github.com/jason-ntu/ETHtaipei2024/assets/125814787/18279885-1c74-4fc4-bde4-c2c91b2683c4)
+
+There's also ubsbscribe and cancel order
+
 
 ## Contract Links
