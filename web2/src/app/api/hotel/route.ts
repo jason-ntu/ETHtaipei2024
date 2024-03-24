@@ -46,4 +46,6 @@ export async function GET(request: NextRequest) {
 
 }
 
-// add field (images, tags, rating)
+export async function OPTIONS(){
+	return NextResponse.json({ status: 200});
+}

@@ -7,7 +7,8 @@ interface IUser {
   email?: string;
   password?: string;
   walletAddress?: string;
-  // tokenAmount?: number;
+  walletId?: string;
+  isSubscribe?: boolean;
 }
 
 // Extend the IUser interface with mongoose.Document for _id, etc.
@@ -27,15 +28,26 @@ const UserSchema: Schema = new Schema({
     type: String,
     required: false,
   },
-  walletAddress: {
+  /*
+  userOwnWalletAddress: {
     type: String,
     required: false,
   },
-  // tokenAmount: {
-  //   type: Number,
-  //   required: false,
-  // },
-});
+  */
+  walletAddress: {     // wallet under our wallet set
+    type: String,
+    required: false,
+  },
+  walletId: {
+    type: String,
+    required: false,
+  },
+  isSubscribe: {
+    type: Boolean,
+    required: false,
+    default: false,
+  }
+}, { versionKey: false });
 
 // Create a model or use an existing one
 const User: Model<IUserDocument> = mongoose.models.User || mongoose.model<IUserDocument>('User', UserSchema);

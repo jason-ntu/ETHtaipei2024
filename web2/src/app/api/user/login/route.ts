@@ -20,3 +20,7 @@ export async function POST(req: NextRequest){
 	return NextResponse.json({ error: 'Account Doesn\'t Exists' }, { status: 500 })
 
 }
+
+export async function OPTIONS(){
+	return NextResponse.json({ status: 200});
+}
