@@ -1,29 +1,25 @@
 const { Schema, model } = require('mongoose');
 const mongoose = require('mongoose');
 
-const HotelSchema = new Schema({
-  name: {
+const BookingSchema = new Schema({
+  userId: {
     type: String,
     required: false,
   },
-  address: {
+  hotelId: {
     type: String,
     required: false,
   },
-  description: {
+  CCM_txHash: {
     type: String,
     required: false,
   },
-  price: {    // in token
-    type: Number,
-    required: false,
-  },
-  photo: {
+  CCR_txHash: {
     type: String,
     required: false,
-  },
-});
+  }
+}, { versionKey: false });
 
-const Hotel = mongoose.models.Hotel || model('Hotel', HotelSchema);
+const Booking = mongoose.models.Booking || model('Booking', BookingSchema);
 
-module.exports = Hotel;
+module.exports = Booking;
