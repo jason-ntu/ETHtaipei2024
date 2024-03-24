@@ -2,8 +2,8 @@
 ### TL; DR
 We utilized Circle's programmable wallet to implement an on-chain reservation platform based on subscription service. As for chains Circle hasn't support yet, we adjust smart contract to achieve the goal.
 
-- [Demo video link]() 
-- [TAIKAI link]()
+- [Demo video link](https://youtu.be/Zxt9uZR2Xqs) 
+- [TAIKAI link](https://taikai.network/ethtaipei/hackathons/hackathon-2024/projects/clu4jbahm0k3ny501hlji3yo1/idea)
 
 ## Install & Run
 
