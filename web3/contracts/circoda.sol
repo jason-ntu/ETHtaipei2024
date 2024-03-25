@@ -1,36 +1,23 @@
 // SPDX-License-Identifier: MIT
 pragma solidity >=0.8.2 <0.9.0;
 
-import "./CCR.sol";
-
-interface IERC20 {
-    function transfer(address to, uint256 tokens) external returns (bool);
-
-    function transferFrom(
-        address sender,
-        address recipient,
-        uint256 amount
-    ) external returns (bool);
-
-    function balanceOf(address account) external view returns (uint256);
-
-    function allowance(
-        address owner,
-        address spender
-    ) external view returns (uint256);
-}
+import "@openzeppelin/contracts/token/ERC20/IERC20.sol";
+import "@openzeppelin/contracts/token/ERC721/IERC721.sol";
 
 contract Circloda {
-    address public usdcAddress;
-    address public ccmAddress;
-    address public ccrAddress;
+    address public usdcAddress = 0x53eeFF269E293038dD895FFA46bB72c3DADC39CF;
+    address public ccmAddress = 0x8b1CB4Bb68e6126c4fD54Aa2DC08705f5d5E5615;
+    address public ccrAddress = 0x096F9eF5185E1a05bF18961C5b76C8E97CbC50b0;
     address public owner;
+    IERC20 public USDC;
+    IERC20 public CCM;
+    IERC721 public CCR;
     mapping(address => uint256) public usdc;
 
     constructor() {
-        usdcAddress = 0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48;
-        ccmAddress = 0x1234567890123456789012345678901234567890;
-        ccrAddress = 0x1234567890123456789012345678901234567890;
+        USDC = IERC20(usdcAddress);
+        CCM = IERC20(ccmAddress);
+        CCR = IERC721(ccrAddress);
         owner = msg.sender;
     }
 
@@ -41,13 +28,13 @@ contract Circloda {
         require(msg.sender == owner, "Only owner can call this function");
         // 检查是否已授权合约进行转账
         require(
-            IERC20(usdcAddress).allowance(_subscriber, address(this)) >=
+            USDC.allowance(_subscriber, address(this)) >=
                 _amount,
             "Insufficient allowance"
         );
         // 执行代币转账
         require(
-            IERC20(usdcAddress).transferFrom(
+            USDC.transferFrom(
                 _subscriber,
                 address(this),
                 _amount
@@ -66,7 +53,7 @@ contract Circloda {
         require(usdc[_subscriber] >= _subscriptionFee, "Insufficient balance");
         // 执行代币转账
         require(
-            IERC20(ccmAddress).transfer(_subscriber, _subscriptionFee),
+            CCM.transfer(_subscriber, _subscriptionFee),
             "Transfer failed"
         );
         usdc[_subscriber] -= _subscriptionFee;
@@ -75,22 +62,23 @@ contract Circloda {
 
     function order(
         address _user,
-        uint256 _price
+        uint256 _price,
+        uint256 _id
     ) public payable returns (bool) {
         require(msg.sender == owner, "Only owner can call this function");
         // 检查用户余额是否足够
         require(
-            IERC20(ccmAddress).allowance(_user, address(this)) >= _price,
+            CCM.allowance(_user, address(this)) >= _price,
             "Insufficient allowance"
         );
         // 执行代币转账
         require(
-            IERC20(ccmAddress).transferFrom(_user, address(this), _price),
+            CCM.transferFrom(_user, address(this), _price),
             "Transfer failed"
         );
 
         // mint a reservation NFT to the user
-        CCR(ccrAddress).mint(_user, 1);
+        CCR.transferFrom(msg.sender, _user, _id);
         return true;
     }
 }
