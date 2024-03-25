@@ -5,9 +5,6 @@ We utilized Circle's programmable wallet to implement an on-chain reservation pl
 - [Demo video link](https://youtu.be/Zxt9uZR2Xqs) 
 - [TAIKAI link](https://taikai.network/ethtaipei/hackathons/hackathon-2024/projects/clu4jbahm0k3ny501hlji3yo1/idea)
 
-## Install & Run
-
-
 ## Problem Solved
 1. It's **hard to implement subscription service on blockchain** basically due to the push-based nature of blockchain transactions.
    - [On-chain subscriptions don’t work](https://gaurangtorvekar.medium.com/on-chain-subscriptions-dont-work-2b7547f27e9d)
@@ -15,7 +12,6 @@ We utilized Circle's programmable wallet to implement an on-chain reservation pl
 2. Existing online travel agent like Agoda (most commonly used platform in Taiwan) and Travala (paltform with crypto payment) have a pain point that the **booking price fluctuations**.
 
 ### Why subscription service avoid fluctuating prices?
-
 Jarpanese company KabuK Style Inc. has an online reservation platform [HafH](https://www.hafh.com/en) based on subscription service. The basic idea is to let subscribers pay monthly fee to get HafH token and use it to pay for the reservation (currently 49.99 USD for 200 token / per month). HafH stabilizes room prices by predicting reasonable market prices through its internal algorithm and directly signing contracts with accommodation providers. Although we don't know about the algorithm, subscription service indeed provide a fixed lower price and create customer loyalty while providing predictable revenue streams for the company.
 
 ## Abstactions
@@ -29,7 +25,12 @@ During the hackathon, we utilized Circle's Dev Controlled Wallets to implement a
 ### 3. User book for hotel
 ![Circoda - User place order](https://github.com/jason-ntu/ETHtaipei2024/assets/125814787/18279885-1c74-4fc4-bde4-c2c91b2683c4)
 
-There's also ubsbscribe and cancel order haven't bimplemm
+There's also functions like ubsbscribe and cancel order haven't been implemented during hackathon, but the concept is 
+### Unsubscribe
+![Circoda - User unsubscribe](https://github.com/jason-ntu/ETHtaipei2024/assets/125814787/fe90c98b-7049-4783-a521-0f6a5dd96f92)
+
+### Cancel order
+![Circoda - User cancel order](https://github.com/jason-ntu/ETHtaipei2024/assets/125814787/dcce52e3-f086-424a-810f-9e9b0f9ce95d)
 
 
 ## Contract Links
